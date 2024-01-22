@@ -1,0 +1,31 @@
+body{
+    background-color: green;
+}
+p{
+    color: red;
+    background-color: yellow;
+}
+
+#blue{
+    color: blue;
+    background-color: red;
+    font-size: 90px;
+    font-weight: bold;
+}
+#green{
+    color: green;
+    font-size: 25px;
+}
+
+.numberList{
+    color: red;
+}
+.whiteText{
+    color: white;
+}
+.green{
+    color: green;
+}
+h1{
+    font-size: 90px;
+}

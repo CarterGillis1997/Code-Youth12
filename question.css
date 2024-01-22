@@ -1,0 +1,46 @@
+div{
+    width: 50px;
+    height: 50px;
+    border: 1px solid;
+}
+.div2{
+    margin-left: 10px;
+}
+.div3{
+    margin: 0 20px;
+}
+.div4{
+    margin: 0 30px;
+}
+.div5{
+    margin: 0 40px;
+}
+#fakeButton{
+    width: 60px;
+    padding: 10px 25px;
+    background-color: grey;
+    color: white;
+}
+body{
+    height: 2000px;
+}
+#right{
+    position: fixed;
+    right: calc(50% - (213.938px / 2));
+    bottom: 0;
+}
+
+.parent{
+    width: 500px;
+    height: 500px;
+    position: relative;
+    left: 50px;
+}
+.child{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.inline{
+    display:block;
+}

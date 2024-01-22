@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        .number{
+            width: 250px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+        }
+        .numTop{
+            width: 100%;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+        }
+        .numBot{
+            height: 200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .top, .bot{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .mid{
+            width: 100%;
+            height: 150px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .horizontal{
+            width: 60%;
+            background-color: rgb(239 239 239);
+            height: 100%;
+            color: rgb(239 239 239);
+            position: relative;
+        }
+        .horizontal::before{
+            content:"";
+            position: absolute;
+            left: -50px;
+            border: 25px solid transparent;
+            border-right-color: inherit;
+        }
+        .horizontal::after{
+            content:"";
+            position: absolute;
+            right: -50px;
+            border: 25px solid transparent;
+            border-left-color: inherit;
+        }
+        .vertical{
+            width: 50px;
+            height: 100%;
+            color: rgb(239 239 239);
+            background-color: rgb(239 239 239);
+            position: relative;
+        }
+        .vertical::before{
+            content:"";
+            position: absolute;
+            top: -50px;
+            border: 25px solid transparent;
+            border-bottom-color: inherit;
+        }
+        .vertical::after{
+            content:"";
+            position: absolute;
+            bottom: -50px;
+            border: 25px solid transparent;
+            border-top-color: inherit;
+        }
+        /* One */
+        .num1 .vertical:nth-child(2){
+            background-color: black;
+color: black;
+        }
+
+        /* Two */
+        .num2 .horizontal{
+            background-color: black;
+color: black;
+        }
+        .num2 .numTop .vertical:nth-child(2){
+            background-color: black;
+color: black;
+        }
+        .num2 .numBot .vertical:nth-child(1){
+            background-color: black;
+color: black;
+        }
+
+        /* Three */
+        .num3 .horizontal, .num3 .vertical:nth-child(2){
+            background-color: black;
+color: black;
+        }
+
+        /* Four */
+        .num4 .numTop .vertical{
+            background-color: black;
+color: black;
+        }
+        .num4 .numBot .vertical:nth-child(2){
+            background-color: black;
+color: black;
+        }
+        .num4 .numTop .bot .horizontal{
+            background-color: black;
+color: black;
+        }
+
+        /* Five */
+        .num5 .horizontal{
+            background-color: black;
+color: black;
+        }
+        .num5 .numTop .vertical:nth-child(1){
+            background-color: black;
+color: black;
+        }
+        .num5 .numBot .vertical:nth-child(2){
+            background-color: black;
+color: black;
+        }
+
+        /* Six */
+        .num6 .horizontal, .num6 .vertical{
+            background-color: black;
+color: black;
+        }
+        .num6 .numTop .vertical:nth-child(2){
+            background-color: rgb(239 239 239);
+            color: rgb(239 239 239);
+        }
+
+        /* Seven */
+        .num7 .vertical:nth-child(2){
+            background-color: black;
+color: black;
+        }
+        .num7 .top .horizontal:nth-child(1){
+            background-color: black;
+color: black;
+        }
+
+        /* Eight */
+        .num8 .horizontal, .num8 .vertical{
+            background-color: black;
+color: black;
+        }
+
+        /* Nine */
+        .num9 .horizontal, .num9 .vertical{
+            background-color: black;
+color: black;
+        }
+        .num9 .numBot .vertical:nth-child(1){
+            background-color: rgb(239 239 239);
+            color: rgb(239 239 239);
+        }
+
+        /* Zero */
+        .num0 .horizontal, .num0 .vertical{
+            background-color: black;
+color: black;
+        }
+        .num0 .numTop .bot .horizontal{
+            background-color: rgb(239 239 239);
+            color: rgb(239 239 239);
+        }
+
+        .clock{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .colon{
+            width: 50px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+        .dot{
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            transform: rotate(45deg);
+        }
+    </style>
+
+    <div class="clock">
+        <div class="number" id="hour1">
+            <div class="numTop">
+                <div class="top">
+                    <div class="horizontal"></div>
+                </div>
+                <div class="mid">
+                    <div class="vertical"></div>
+                    <div class="vertical"></div>
+                </div>
+                <div class="bot">
+                    <div class="horizontal"></div>
+                </div>
+            </div>
+            <div class="numBot">
+                <div class="mid">
+                    <div class="vertical"></div>
+                    <div class="vertical"></div>
+                </div>
+                <div class="bot">
+                    <div class="horizontal"></div>
+                </div>
+            </div>
+        </div>
+        <div class="number" id="hour0">
+            <div class="numTop">
+                <div class="top">
+                    <div class="horizontal"></div>
+                </div>
+                <div class="mid">
+                    <div class="vertical"></div>
+                    <div class="vertical"></div>
+                </div>
+                <div class="bot">
+                    <div class="horizontal"></div>
+                </div>
+            </div>
+            <div class="numBot">
+                <div class="mid">
+                    <div class="vertical"></div>
+                    <div class="vertical"></div>
+                </div>
+                <div class="bot">
+                    <div class="horizontal"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="colon">
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <div class="number" id="minute1">
+            <div class="numTop">
+                <div class="top">
+                    <div class="horizontal"></div>
+                </div>
+                <div class="mid">
+                    <div class="vertical"></div>
+                    <div class="vertical"></div>
+                </div>
+                <div class="bot">
+                    <div class="horizontal"></div>
+                </div>
+            </div>
+            <div class="numBot">
+                <div class="mid">
+                    <div class="vertical"></div>
+                    <div class="vertical"></div>
+                </div>
+                <div class="bot">
+                    <div class="horizontal"></div>
+                </div>
+            </div>
+        </div>
+        <div class="number" id="minute0">
+            <div class="numTop">
+                <div class="top">
+                    <div class="horizontal"></div>
+                </div>
+                <div class="mid">
+                    <div class="vertical"></div>
+                    <div class="vertical"></div>
+                </div>
+                <div class="bot">
+                    <div class="horizontal"></div>
+                </div>
+            </div>
+            <div class="numBot">
+                <div class="mid">
+                    <div class="vertical"></div>
+                    <div class="vertical"></div>
+                </div>
+                <div class="bot">
+                    <div class="horizontal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const hourElements = [
+            document.querySelectorAll('#hour1')[0],
+            document.querySelectorAll('#hour0')[0]
+        ]
+
+        const minuteElements = [
+            document.querySelectorAll('#minute1')[0],
+            document.querySelectorAll('#minute0')[0]
+        ]
+
+        function updateTime(){
+            hourElements[0].className = "number"
+            hourElements[1].className = "number"
+            minuteElements[1].className = "number"
+            minuteElements[1].className = "number"
+
+            const date = new Date();
+            let minutes = date.getMinutes().toString();
+            let hours = date.getHours().toString();
+
+            if(minutes.length == 1){
+                minutes = `0${minutes}`
+            }
+            if(hours.length == 1){
+                hours = `0${hours}`
+            }
+
+            minutes = minutes.split("")
+            hours = hours.split("")
+            
+            hourElements[0].classList.add(`num${hours[0]}`);
+            hourElements[1].classList.add(`num${hours[1]}`);
+            minuteElements[0].classList.add(`num${minutes[0]}`);
+            minuteElements[1].classList.add(`num${minutes[1]}`);
+
+            const offset = 60 - date.getSeconds();
+            setTimeout(updateTime, offset * 1000);
+        }
+        updateTime();
+
+
+    </script>
+
+</body>
+</html>

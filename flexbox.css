@@ -1,0 +1,27 @@
+.box{
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.child{
+    width: 50px;
+    height: 50px;
+    border: 5px solid red;
+}
+
+/*
+ hello
+world 
+ */
+.box2 {
+    width: 200px;
+    height: 250px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

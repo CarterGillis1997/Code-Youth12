@@ -1,0 +1,85 @@
+.flexOne, .flexTwo, .flexThree, .flexFour{
+    margin-bottom: 10vh;
+}
+div{
+    border: 1px solid;
+}
+
+/* Small Boxes */
+.child{
+    width: 50px;
+    height: 50px;
+    border-color: red;
+    border-width: 3px;
+    box-sizing: border-box;
+}
+.flexOne{
+    height: 50px;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+.flexTwo{
+    width: 50px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.flexThree{
+    display: flex;
+    width: 250px;
+    height: 50px;
+    justify-content: space-between;
+}
+.container{
+    display: flex;
+    border: none;
+}
+
+.flexFour{
+    height: 250px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.flexFour .parent{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+}
+
+.flexFive{
+    width: 250px;
+    height: 250px;
+    display: flex;
+    border: none;
+}
+.box1{
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 5px solid red;
+}
+.box2{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+.box3, .box4{
+    width: 100%;
+    height: 50%;
+}
+.box3{
+    border: 5px solid green;
+    box-sizing: border-box;
+}
+.box4{
+    box-sizing: border-box;
+    border: 5px solid blue;
+}

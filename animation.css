@@ -1,0 +1,20 @@
+.vanish{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    animation: disappear 5s alternate infinite;
+}
+
+@keyframes disappear {
+    0%{
+        opacity: 1;
+        scale: 5;
+    }
+    50%{
+        background-color: green;
+    }
+    100%{
+        opacity: 0;
+        scale: 1;
+    }
+}
