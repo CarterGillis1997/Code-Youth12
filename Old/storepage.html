@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+    body{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    }
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        background-color: rgb(33, 33, 33);
+        color: white;
+        height: 50px;
+    }
+    .content{
+        width: 100%;
+        height: calc(100% - 50px);
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .product{
+        width: 20%;
+        height: 20vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        box-sizing: border-box;
+        border: 1px solid;
+    }
+    .imgDiv{
+        width: 100%;
+        height: 10vw;
+    }
+    img{
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+
+    .cart{
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 500px;
+        background-color: white;
+        display: none;
+        flex-direction: column;
+    }
+    .cartHead{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        background-color: black;
+    }
+
+    .cartItem {
+    display: flex;
+    border-bottom: 1px solid;
+    padding: 1vh 0;
+    justify-content: flex-end;
+}
+.cartItem * {
+    margin: 0 10%;
+}
+.controls{
+    height: 100%;
+}
+.cartToggle{
+    margin: 0 1vh;
+    font-size: 3vh;
+}
+    </style>
+
+    <header>
+        <h1>My Store</h1>
+        <div class="controls">
+            <p class="cartToggle">Cart</p>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="product">
+            <p>Skateboard</p>
+            <div class="imgDiv">
+                <img src="https://cdn.skatepro.com/product/520/enuff-skully-complete-skateboard-rx.webp" alt="">
+            </div>
+            <div class="meta">
+                <p>Price: $<span class="price">50</span> Stock: <span class="stock">13</span></p>
+            </div>
+            <button class="aTC">Add to cart</button>
+        </div>
+
+        <div class="product">
+            <p>Shoe</p>
+            <div class="imgDiv">
+                <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg" alt="">
+            </div>
+            <div class="meta">
+                <p>Price: $<span class="price">13</span> Stock: <span class="stock">2</span></p>
+            </div>
+            <button class="aTC">Add to cart</button>
+        </div>
+
+    </div>
+
+    <div class="cart">
+        <div class="cartHead">
+            <p>Cart</p>
+            <button>X</button>
+        </div>
+        <div class="cartContent">
+
+        </div>
+    </div>
+    
+
+    <script>
+        const cartButtons = document.querySelectorAll('.aTC');
+        for(let i = 0; i < cartButtons.length; i++){
+            cartButtons[i].addEventListener("click",(event)=>{
+                const thisItem = cartButtons[i].parentElement
+                const itemDetails = {
+                    name:thisItem.querySelector("p").innerText,
+                    price:thisItem.querySelector(".price").innerText,
+                    stock:thisItem.querySelector(".stock").innerText,
+                    img:thisItem.querySelector("img").src
+                }
+
+                if(itemDetails.stock != 0){
+                    const itemInCart = document.querySelectorAll(`#${itemDetails.name}`)[0]
+                    if(!itemInCart){
+                    const newCartItem = document.createElement('div');
+                    newCartItem.classList.add("cartItem");
+                    newCartItem.id = itemDetails.name;
+
+                    const name = document.createElement('p');
+                    name.innerText = itemDetails.name;
+
+                    const price = document.createElement('p');
+                    price.classList.add("cartPrice");
+                    price.innerText = "$" + itemDetails.price;
+
+                    const quantity = document.createElement('p');
+                    quantity.innerText = "1";
+                    quantity.classList.add("quantity")
+
+                    const remove = document.createElement('div');
+                    remove.classList.add("remove");
+                    remove.innerText = 'X';
+                    
+                    newCartItem.append(name, price, quantity, remove)
+
+                    document.querySelectorAll(".cartContent")[0].appendChild(newCartItem)
+                    thisItem.querySelector(".stock").innerText = parseInt(itemDetails.stock) - 1
+                    }else{
+                        let quantity = parseInt(itemInCart.querySelector(".quantity").innerText)
+                        quantity++;
+                        itemInCart.querySelector(".quantity").innerText = quantity;
+
+                        let price = parseInt(itemInCart.querySelector(".cartPrice").innerText.replaceAll("$",""));
+                        price = itemDetails.price * quantity;
+                        itemInCart.querySelector(".cartPrice").innerText = `$${price}`;
+
+                    thisItem.querySelector(".stock").innerText = parseInt(itemDetails.stock) - 1
+
+                    }
+                }
+            })
+        }
+
+        const cT = document.querySelectorAll('.cartToggle')[0];
+        const cart = document.querySelectorAll('.cart')[0]
+        cT.addEventListener("click",()=>{
+            const status = getComputedStyle(document.querySelectorAll('.cart')[0]).display;
+            if(status == "none"){
+                cart.style.display = 'flex'
+            }else{
+                cart.style.display = 'none'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -60,3 +60,5 @@ let myKeys = Object.keys(myObj2)
 for(let i = 0; i < myKeys.length; i++){
     console.log(myObj2[myKeys[i]])
 }
+
+

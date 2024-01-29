@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+
+    #hello{
+
+    }
+
+    .bye{
+
+    }
+
+ -->
+    <!-- <p id="hello">Hello World</p>
+ 
+    <p class="bye">Goodbye</p>
+    <p class="bye">See ya</p>
+
+    <button>a</button>
+    <button>b</button>
+    <button>c</button>
+
+    <a id="google" href="https://google.com">Google</a>
+
+    <div id="parent" style="width: 200px; height: 200px; border: 1px solid;"></div> -->
+
+    <!-- <button id="click">Click Me</button> -->
+
+    <button class="numberButtons">One</button>
+    <button class="numberButtons">Two</button>
+    <button class="numberButtons">Three</button>
+    <button>Four</button>
+
+
+    <style>
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            transition: 1s border-top-left-radius, 1s border-top-right-radius, 1s border-bottom-left-radius, 1s border-bottom-right-radius;
+        }
+        #clickTest{
+            color: black;
+            transition: 1s color;
+        }
+    </style>
+    <div class="box"></div>
+    <button id="clickTest">Test</button>
+
+    <script>
+        const button = document.querySelectorAll('#clickTest')[0];
+        const box = document.querySelectorAll('.box')[0]
+        button.addEventListener("mousedown",(event)=>{
+            const startTime = new Date().getTime();
+            button.style.color = "red"
+
+            button.addEventListener('mouseup',function unclick(){
+                const endTime = new Date().getTime();
+
+                console.log(endTime - startTime)
+
+                // box.style.borderTopLeftRadius = "50%"
+                // setTimeout(()=>{
+                //     box.style.borderTopRightRadius = "50%"
+                // }, 100)
+                // setTimeout(()=>{
+                // box.style.borderBottomLeftRadius = "50%"
+                // }, 250)
+                // setTimeout(()=>{
+                // box.style.borderBottomRightRadius = "50%"
+                // }, 400)
+
+
+                button.removeEventListener("mouseup",unclick);
+                if(endTime - startTime < 500){
+                    button.innerText = 'Click'
+                }else{
+                    button.innerText = 'Hold '
+                }
+            })
+        })
+
+    </script>
+</body>
+</html>
