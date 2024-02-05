@@ -1,0 +1,55 @@
+/* p{
+    color:red;
+    background-color: green;
+} */
+
+p{
+    margin: 0;
+}
+
+
+li{
+    color: green;
+}
+
+#goodbye{
+    color: white;
+}
+
+#howdy{
+    background-color: yellow;
+}
+
+.red{
+    background-color: red;
+}
+
+#fakeHeader{
+    font-size: 32px;
+    font-weight: 900;
+}
+
+#border{
+    border: 50px solid red;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    margin: 50px 100px 25px 10px;
+    padding: 50px 25px;
+    border: solid;
+}
+
+/* 
+selector:{
+    Property: Value;
+}
+
+#id{
+
+}
+
+.class{
+
+*/

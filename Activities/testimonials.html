@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+    body{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    }
+    .testimonialsDiv{
+        width: 50vh;
+        height: 30vh;
+        border: solid;
+        margin: 5vh;
+    }
+    .tHeader {
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid black;
+    background-color: rgb(58, 58, 58);
+    color: white;
+    font-family: sans-serif;
+    }
+    .name{
+        height: 100%;
+        width: calc(100% / 3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        box-sizing: border-box;
+    }
+    .name:hover{
+        background-color: rgb(76, 76, 76);
+        cursor: pointer;
+    }
+    .active{
+        background-color: greenyellow !important;
+        color: black;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+    .active::after{
+        content: "";
+        position: absolute;
+        border: 2vh solid transparent;
+        border-top: 2vh solid greenyellow;
+        top: calc(100% - 1vh);
+    }
+    .tContent{
+        background-color: rgb(134, 199, 36);
+        width: 100%;
+        height: calc(100% - 6vh);
+        padding-top: 1vh;
+    }
+    </style>
+    
+    <div class="testimonialsDiv">
+        <div class="tHeader">
+            <div id="brimpstonRogers" class="name active">Brimpston Rogers</div>
+            <div id="sarshaWarsha" class="name">Sarsha Warsha</div>
+            <div id="jurimoDatatag" class="name">Jurimo Datatag</div>
+        </div>
+        <div class="tContent">
+            "Wow I love this product so much, It has changed my life forever" ~ Brimpston Rogers
+        </div>
+    </div>
+
+
+    <script>
+        const testimonials = {
+            brimpstonRogers: "Wow I love this product so much, It has changed my life forever",
+            sarshaWarsha: "This product is so cool! I can't wait to buy 5 more!",
+            jurimoDatatag: "I can't believe this product works, thank you company this product has been so cool."
+        }
+
+        const names = document.querySelectorAll('.name');
+        for(let i = 0; i < names.length; i++){
+            names[i].addEventListener("click",()=>{
+                document.querySelectorAll('.active')[0].classList.remove("active");
+                names[i].classList.add("active");
+                document.querySelectorAll('.tContent')[0].innerHTML = `"${testimonials[names[i].id]}" <b>~ ${names[i].innerText}</b>`
+            })
+        }
+    </script>
+</body>
+</html>

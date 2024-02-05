@@ -1,0 +1,19 @@
+[
+    {
+        "name":"carter",
+        "location":{
+            "province":"ontario",
+            "city":"oshawa"
+        },
+        "isLoggedOn":true
+    },
+    {
+            "name":"Jurimo Datatag",
+            "location":{
+                "province":"ontario",
+                "city":"oshawa"
+            },
+            "isLoggedOn":false,
+            "employeeNumber":4
+    }
+]

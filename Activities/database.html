@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+    body{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    }
+    .empContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 2vh 1vh;
+    }
+    .details{
+        display: flex;
+    }
+    </style>
+    
+    <div class="search">
+        <input type="text" id="search" placeholder="Enter Name">
+    </div>
+
+    <div class="employeeList">
+
+    </div>
+
+    <script>
+const employees = [{
+"name": "Alice",
+"position": "Software Engineer",
+"salary": 85000
+},
+
+{
+"name": "Bob",
+"position": "Data Analyst",
+"salary": 72000
+},
+{
+"name": "Bobby",
+"position": "Data Analyst",
+"salary": 72000
+},
+
+{
+"name": "Charlie",
+"position": "Marketing Manager",
+"salary": 68000
+},
+
+{
+"name": "David",
+"position": "Product Designer",
+"salary": 80000
+},
+
+{
+"name": "Emma",
+"position": "Financial Analyst",
+"salary": 75000
+},
+
+{
+"name": "Fiona",
+"position": "Human Resources Coordinator",
+"salary": 60000
+},
+
+{
+"name": "George",
+"position": "Sales Representative",
+"salary": 67000
+},
+
+{
+"name": "Hannah",
+"position": "Operations Manager",
+"salary": 90000
+},
+
+{
+"name": "Ian",
+"position": "Customer Support Specialist",
+"salary": 55000
+},
+
+{
+"name": "Jessica",
+"position": "Accountant",
+"salary": 78000
+},
+{
+    "name":"Emily",
+    "position":"Accountant",
+    "salary": 78000
+}]
+    </script>
+
+    <script>
+        const employeeList = document.querySelectorAll('.employeeList')[0];
+
+        // Initial function runs on page load. Adds all employees to employee list
+        function init(){
+            for(let i = 0; i < employees.length; i++){
+                const employeeDiv = createEmployee(employees[i]);
+                employeeList.appendChild(employeeDiv)
+            }
+        }
+
+        // Returns a div with employees data filled in.
+        function createEmployee(data){
+            const container = document.createElement('div');
+            container.className = "empContainer";
+
+            const name = document.createElement('div');
+            name.innerText = `${data.name} | ${data.position}`;
+            name.style.borderBottom = "1px solid"
+
+            const salary = document.createElement('div');
+            salary.innerText = `$${data.salary}`;
+            
+
+            container.append(name, salary);
+
+            return container;
+        }
+
+        const search = document.querySelectorAll('#search')[0];
+        let searchTimer;
+        search.addEventListener("keyup",(event)=>{
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(()=>{
+                const query = search.value;
+            const match = [];
+
+            for(let i = 0; i < employees.length; i++){
+                if(employees[i].name.includes(query)){
+                    match.push(employees[i])
+                }
+            }
+
+            employeeList.innerHTML = '';
+
+            for(let i = 0; i < match.length; i++){
+                const employeeDiv = createEmployee(match[i]);
+                employeeList.appendChild(employeeDiv)
+            }
+            }, 500)
+        })
+
+        init();
+    </script>
+</body>
+</html>

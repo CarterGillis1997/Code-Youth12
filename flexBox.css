@@ -1,0 +1,52 @@
+.parent{
+    width: 500px;
+    height: 250px;
+    border: 1px solid;
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.child{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border: solid;
+}
+
+.parent2{
+    margin: 10px;
+    width: 500px;
+    height: 250px;
+    border: 1px solid;
+    display: inline-flex;
+}
+
+.parent3 {
+    border: 1px solid;
+    width: 250px;
+    height: 500px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.collection{
+    border: 5px solid red;
+    width: 500px;
+    height: 500px;
+    display: flex;
+}
+.halfBox{
+    width: 250px;
+    height: 250px;
+    border: 5px green solid;
+    box-sizing: border-box;
+}
+.fullBox{
+    width: 250px;
+    height: 500px;
+    border: 5px solid blue;
+    box-sizing: border-box;
+}

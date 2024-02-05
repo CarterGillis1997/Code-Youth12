@@ -1,0 +1,18 @@
+{
+    "carter":{
+        "location":{
+            "province":"ontario",
+            "city":"oshawa"
+        },
+        "isLoggedOn":true,
+        "employeeNumber":5
+    },
+    "Jurimo Datatag":{
+        "location":{
+            "province":"ontario",
+            "city":"oshawa"
+        },
+        "isLoggedOn":false,
+        "employeeNumber":4
+    }
+}
