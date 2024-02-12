@@ -102,17 +102,22 @@ form input, form button {
     
 
     <script>
+
+        // Get login and signup buttons
         const userButtons = document.querySelectorAll('.userButton');
+
         for(let i = 0; i < userButtons.length; i++){
             userButtons[i].addEventListener("click",(event)=>{
                 overlay(userButtons[i].id)
             })
         }
 
+        // Creates the overlay and fills it with the selected form.
         function overlay(type){
             const overlay = document.createElement('div');
             overlay.className = "overlay";
             overlay.addEventListener("click",(event)=>{
+                console.log(event)
                 if(event.target.className == "overlay"){
                     overlay.remove();
                 }

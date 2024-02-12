@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    body{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    }
+    .grid{
+        width: 60vh;
+        height: 60vh;
+        margin: 1vh;
+    }
+    .row{
+        display: flex;
+    }
+    .cell{
+        border: 1px solid;
+        width: 20vh;
+        height: 20vh;
+    }
+    .player{
+        background-color: red;
+    }
+    .controls{
+        width: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .controls button{
+        font-size: 3vh;
+        width: 5vh;
+        height: 5vh;
+    }
+    </style>
+
+    <div class="grid">
+        <div class="row" id="row1">
+            <div class="cell" id="col1"></div>
+            <div class="cell" id="col2"></div>
+            <div class="cell" id="col3"></div>
+        </div>
+        <div class="row" id="row2">
+            <div class="cell" id="col1"></div>
+            <div class="cell player" id="col2"></div>
+            <div class="cell" id="col3"></div>
+        </div>
+        <div class="row" id="row3">
+            <div class="cell" id="col1"></div>
+            <div class="cell" id="col2"></div>
+            <div class="cell" id="col3"></div>
+        </div>
+    </div>
+    <div class="controls">
+        <div class="top">
+        <button id="up">↑</button>
+    </div>
+        <div class="mid">
+            <button id="left">←</button>
+            <button id="right">→</button>
+        </div>
+        <div class="bot">
+            <button id="down">↓</button>
+        </div>
+    </div>
+
+    <script>
+        const controls = {
+            up: document.querySelector('#up'),
+            left: document.querySelector('#left'),
+            right: document.querySelector('#right'),
+            down: document.querySelector('#down')
+        }
+
+        for(let i in controls){
+            controls[i].addEventListener("click",()=>{
+                const currentPos = document.querySelectorAll('.player')[0];
+                const coords = [parseInt(currentPos.id.replaceAll("col","")), parseInt(currentPos.parentElement.id.replaceAll("row",""))]
+                console.log(coords)
+
+
+                if(i == "up"){
+                    if(coords[1] > 1){
+                            document.querySelectorAll('.player')[0].classList.remove("player");
+                            row = document.querySelectorAll(`.row[id='row${coords[1] - 1}']`);
+                            col = row[0].querySelectorAll(`.cell[id='col${coords[0]}']`);
+                            
+                            col[0].classList.add("player")
+                        }
+                }else if(i == "down"){
+                    if(coords[1] < 3){
+                            document.querySelectorAll('.player')[0].classList.remove("player");
+                            row = document.querySelectorAll(`.row[id='row${coords[1] + 1}']`);
+                            col = row[0].querySelectorAll(`.cell[id='col${coords[0]}']`);
+                            
+                            col[0].classList.add("player")
+                        }
+                }else if(i == "left"){
+                    if(coords[0] > 1){
+                            document.querySelectorAll('.player')[0].classList.remove("player");
+                            row = document.querySelectorAll(`.row[id='row${coords[1]}']`);
+                            col = row[0].querySelectorAll(`.cell[id='col${coords[0] - 1}']`);
+
+                            col[0].classList.add("player")
+                        }
+                }else if(i == "right"){
+                    if(coords[0] < 3){
+                            document.querySelectorAll('.player')[0].classList.remove("player");
+                            row = document.querySelectorAll(`.row[id='row${coords[1]}']`);
+                            col = row[0].querySelectorAll(`.cell[id='col${coords[0] + 1}']`);
+
+                            col[0].classList.add("player")
+                        }
+                }
+
+                // switch(i){
+                //     case "up":
+                //         if(coords[1] > 1){
+                //             document.querySelectorAll('.player')[0].classList.remove("player");
+                //             row = document.querySelectorAll(`.row[id='row${coords[1] - 1}']`);
+                //             col = row[0].querySelectorAll(`.cell[id='col${coords[0]}']`);
+                            
+                //             col[0].classList.add("player")
+                //         }
+                //     break;
+
+                //     case "down":
+                //         if(coords[1] < 3){
+                //             document.querySelectorAll('.player')[0].classList.remove("player");
+                //             row = document.querySelectorAll(`.row[id='row${coords[1] + 1}']`);
+                //             col = row[0].querySelectorAll(`.cell[id='col${coords[0]}']`);
+                            
+                //             col[0].classList.add("player")
+                //         }
+                //     break;
+
+                //     case "left":
+                //         if(coords[0] > 1){
+                //             document.querySelectorAll('.player')[0].classList.remove("player");
+                //             row = document.querySelectorAll(`.row[id='row${coords[1]}']`);
+                //             col = row[0].querySelectorAll(`.cell[id='col${coords[0] - 1}']`);
+
+                //             col[0].classList.add("player")
+                //         }
+                //     break;
+
+                //     case "right":
+                //         if(coords[0] < 3){
+                //             document.querySelectorAll('.player')[0].classList.remove("player");
+                //             row = document.querySelectorAll(`.row[id='row${coords[1]}']`);
+                //             col = row[0].querySelectorAll(`.cell[id='col${coords[0] + 1}']`);
+
+                //             col[0].classList.add("player")
+                //         }
+                //     break;
+                // }
+            })
+        }
+
+    </script>
+</body>
+</html>

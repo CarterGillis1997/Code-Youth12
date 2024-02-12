@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        .sideMenu{
+            position: absolute;
+            top: 0;
+            left: -25vh;
+            width: 25vh;
+            height: 100vh;
+            border-right: 1px solid;
+            transition: 1s left;
+        }
+        .nav{
+            width: 100%;
+            text-align: center;      
+            font-size: 3vh;
+        }
+        .nav p{
+            text-decoration: underline;
+        }
+        .expand{
+            width: 5vh;
+            height: 5vh;
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3vh;
+            position: absolute;
+            left: 100%;
+            top: 10px;
+            border-left: none;
+            background-color: white;
+            cursor: pointer;
+        }
+    </style>
+    
+    <div class="sideMenu">
+        <div class="nav">
+            <p>Home</p>
+            <p>About</p>
+            <p>Contact Us</p>
+            <p>Help</p>
+            <p>More</p>
+        </div>
+        <div class="expand" state="off">
+            →
+        </div>
+    </div>
+
+    <script>
+        // Expand Button
+        const expand = document.querySelectorAll('.expand')[0];
+
+        // Menu
+        const sideMenu = document.querySelectorAll('.sideMenu')[0];
+
+        expand.addEventListener("click",()=>{
+            if(expand.getAttribute("state") == "off"){
+                expand.setAttribute("state", "on");
+                expand.innerHTML = `←`;
+
+                sideMenu.style.left = '0'
+            }else{
+                expand.setAttribute("state","off");
+                expand.innerHTML = '→'
+
+                sideMenu.style.left = '-25vh'
+            }
+        })
+    </script>
+
+</body>
+</html>

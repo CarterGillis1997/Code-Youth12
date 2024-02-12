@@ -28,6 +28,7 @@ async function getData(){
     })
 }
 
+
 function errorFunction(){
     let five = 5;
     try{

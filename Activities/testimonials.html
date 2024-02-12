@@ -89,6 +89,8 @@
         }
 
         const names = document.querySelectorAll('.name');
+
+        // Checks the button for the name and replaces the content in the p tag with the string in testimonials object
         for(let i = 0; i < names.length; i++){
             names[i].addEventListener("click",()=>{
                 document.querySelectorAll('.active')[0].classList.remove("active");

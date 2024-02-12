@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Exersise 1 -->
+    <button id="button1">Button 1</button>
+    <button id="button2">Button 2</button>
+
+    <script>
+        let button1 = document.querySelector('#button1');
+        let button2 = document.querySelector('#button2');
+
+        button1.addEventListener("click", function(){
+            let box = document.createElement('div')
+            box.style = 'width:100px; height:100px; background-color: yellow;';
+
+            document.body.appendChild(box)
+        })
+
+        button2.addEventListener("click", function(){
+            let box = document.createElement('div')
+            box.style = 'width:100px; height:100px; background-color: blue;';
+
+            document.body.appendChild(box)
+        })
+    </script>
+
+    <!-- Exercise 2 -->
+    <button id="button3">Button 3</button>
+    <button id="button4">Button 4</button>
+
+    <script>
+        const button3 = document.querySelector('#button3');
+        const button4 = document.querySelector('#button4');
+
+        button3.addEventListener("click", function(){
+            let newDiv = document.createElement('div');
+            newDiv.className = 'removeMe';
+            newDiv.style = 'width:100px; height: 100px; border: solid;';
+
+            document.body.appendChild(newDiv)
+        })
+        button4.addEventListener("click", function(){
+            let deleteThis = document.querySelector('.removeMe');
+            deleteThis.remove();
+        })
+    </script>
+
+    <!-- Exercise 3 -->
+
+    <script>
+        for(let i = 0; i < 5; i++){
+            let number = document.createElement('p');
+            number.innerText = i;
+
+            document.body.appendChild(number)
+        }
+    </script>
+
+    <!-- Exercise 4 -->
+
+    <p>
+        <span>Learning Latin</span> can provide practical benefits such as <span>expanding vocabulary,</span> understanding legal, medical, and scientific terminology, and <span>gaining a better understanding of English grammar.</span> However, these benefits alone aren't very good reasons to learn the whole language. Research shows that <span>learning Latin leads to children scoring higher in other curriculum areas.</span> Learning Latin can also broaden your horizons and help you understand the culture around you and its origins. Latin is valuable if you want to learn other Romance languages because those languages are derived at least partly from Latin.<span>Additionally, learning Latin can improve language acquisition skills and make you better at speaking English.</span> 
+    </p>
+
+    <button state="off" id="highlight">Highlight</button>
+
+    <script>
+        let highlight = document.querySelector('#highlight');
+        highlight.addEventListener("click",function (){
+            let span = document.querySelectorAll('span');
+
+            if(highlight.getAttribute("state") == "off"){
+                highlight.setAttribute("state", "on")
+                for(let i = 0; i < span.length; i++){
+                    span[i].style.backgroundColor = 'yellow'
+                }
+            }else{
+                highlight.setAttribute("state","off")
+                for(let i = 0; i < span.length; i++){
+                    span[i].style.backgroundColor = 'initial'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
