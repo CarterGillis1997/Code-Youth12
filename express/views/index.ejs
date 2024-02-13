@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <%console.log(employees)%>
+    <p id="data"><%=JSON.stringify(employees)%></p>
+
+    <p id="<%=employees[0].name%>"></p>
+
+    <%if(employees[0].name == "Sarsha Warsha"){%>
+        <p>Howdy Sarsha</p>
+    <%}%>
+
+    <%for(let i = 0; i < employees.length; i++){%>
+        <div>
+            <p><%=employees[i].name%></p>
+            <p>Salary: <%=employees[i].salary%></p>
+        </div>
+    <%}%>
+    <p>Hello World</p>
+    <h1>Hello</h1>
+    <button>Hello</button>
+    <p>woo</p>
+    <p>Hello</p>
+
+    <script src="/js/app.js"></script>
+    <script>
+        const data = document.querySelectorAll('#data')[0];
+        const employees = JSON.parse(data.innerText);
+        console.log(employees)
+    </script>
+</body>
+</html>
