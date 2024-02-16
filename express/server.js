@@ -77,7 +77,7 @@ app.post("/submit", (req, res)=>{
     //     res.redirect("/user/login?error=Bad_Username")
     // }
 
-    
+
     console.log(req.body);
     
     const response = {

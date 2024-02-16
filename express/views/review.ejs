@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+    body{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    }
+    .hidden{
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 25vh;
+        padding: 5vh 3vh;
+        background-color: aliceblue;
+    }
+    form > *{
+        margin: 1vh 0;
+    }
+    .stars{
+        width: 100%;
+        font-size: 4vh;
+        display: flex;
+        justify-content: center;
+    }
+    .stars span:hover{
+        cursor: pointer;
+    }
+    </style>
+    
+    <form method="POST" action="/redirect">
+        <div class="stars">
+            <p><span id="1">☆</span><span id="2">☆</span><span id="3">☆</span><span id="4">☆</span><span id="5">☆</span></p>
+        </div>
+        <input type="text" name="email" placeholder="Enter Email" value="123@abc.com">
+        <input type="text" name="orderNumber" placeholder="Enter Order Number">
+        <textarea name="review" cols="30" rows="10"></textarea>
+        <input type="submit" class="submit">
+        <div class="hidden">
+            <input class="starValue" type="radio" value="1" name="rating"><input class="starValue" type="radio" value="2" name="rating"><input class="starValue" type="radio" value="3" name="rating"><input class="starValue" type="radio" value="4" name="rating"><input class="starValue" type="radio" value="5" name="rating">
+            <input type="text" name="date" class="date">
+        </div>
+    </form>
+
+    <script>
+        const stars = document.querySelectorAll('.stars span');
+        const starValues = document.querySelectorAll('.starValue')
+        for(let i = 0; i < stars.length; i++){
+            stars[i].addEventListener("click",()=>{
+                const thisStar = i+1;
+                
+                for(let i = 0; i < stars.length; i++){
+                    if(parseInt(stars[i].id) <= thisStar){
+                        stars[i].style.color = '#FFC107';
+                        stars[i].innerHTML = `★`
+                    }else{
+                        stars[i].style.color = "black"
+                        stars[i].innerHTML = `☆`
+                    }
+                }
+
+                starValues[i].click();
+            })
+        }
+        
+        const submit = document.querySelectorAll('.submit')[0];
+        submit.addEventListener("click",submitForm);
+
+        function submitForm(event){
+            event.preventDefault();
+
+            document.querySelectorAll('.date')[0].value = new Date();
+
+            submit.removeEventListener("click", submitForm);
+            submit.click();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+    body{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    }
+    header{
+        display: flex;
+        background-color: black;
+        padding: .5vh 13vh;
+    }
+    header a, header p{
+        color: white;
+        text-decoration: none;
+        margin: 0 .5vh;
+        border-bottom: 1px solid white;
+        height: 100%;
+    }
+    .section{
+        padding: 0 23vh;
+        margin: 3vh 0;
+    }
+    .content{
+        display: flex;
+    }
+    .review{
+        background-color: whitesmoke;
+        border: 1px solid;
+        width: 23vh;
+        height: 13vh;
+        margin-right: 1vh;
+        border-radius: .5vh;
+    }
+    </style>
+    
+    <header>
+        <a href="/">Home</a>
+        <a href="/review">Leave a Review!</a>
+    </header>
+
+    <div class="section">
+        <h1 class="title">
+            About
+        </h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero possimus repellat incidunt optio non magni tenetur minus ipsum quidem obcaecati quaerat, iste eius porro earum quod. Officiis eum laborum sit quae necessitatibus fuga corrupti placeat sapiente dicta. Aut quae non in consequuntur alias laudantium doloribus necessitatibus ducimus tempore? Consequatur reiciendis ipsam iure eligendi ex quibusdam nobis exercitationem at maxime, sunt eum id itaque totam hic explicabo quae. Ipsa rem tempore exercitationem esse nemo. Delectus, molestias ea? Quidem, asperiores minus vel quo laudantium labore ratione voluptatem ipsa! Quae tenetur, unde cupiditate accusamus soluta error delectus eos amet distinctio quam eligendi praesentium.</p>
+    </div>
+    <hr>
+    <div class="section">
+        <h1 class="title">
+            Reviews
+        </h1>
+        <div class="content">
+            <%for(let i = 0; i < data.length; i++){%>
+                <div class="review">
+                    <div class="stars">
+                        <p>
+                        <%for(let k = 1; k <= 5; k++){%>
+                            <%if(data[i].rating >= k){%>
+                                <span style="color: #FFC107">★</span>
+                            <%}else{%>
+                                <span>☆</span>
+                            <%}%>
+                        <%}%>
+                        </p>
+                    </div>
+
+                    <p><%=data[i].review%></p>
+
+                </div>
+            <%}%>
+        </div>
+    </div>
+</body>
+</html>
