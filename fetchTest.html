@@ -6,6 +6,29 @@
     <title>Document</title>
 </head>
 <body>
+
+    <style>
+        body{
+            background: url(dbSearch.gif);
+        }
+    </style>
+
+    <input type="text" style="resize: both;">
+
+    div > p
+    <div>
+        <p>Selected</p>
+    </div>
+
+    <div>
+        <header>
+            <p>Not Selected</p>
+        </header>
+    </div>
+
+    <textarea name="" id="" cols="30" rows="10" style="resize: none;"></textarea>
+
+
     <script>
         fetch("http://localhost:4545/allEmployees")
         .then(response => response.json())

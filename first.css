@@ -2,13 +2,21 @@
     color:red;
     background-color: green;
 } */
-
+/* www  */
 p{
     margin: 0;
 }
 
+div p{
 
-li{
+}
+
+div > p{
+    
+}
+
+
+li, p{
     color: green;
 }
 

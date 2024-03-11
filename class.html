@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        class Car{
+            constructor(model, year){
+                console.log("Creating new class");
+
+                // this.val1 = val1
+                // this.val2 = val2
+                this.model = model
+                this.year = year
+
+                this.letter = "a"
+                this.array = []
+                // this.message()
+            }
+
+            // message(){
+            //     console.log("Hello World")
+            //     console.log(this.letter)
+            //     this.text = "hello world"
+            // }
+
+            // addition(num1, num2){
+            //     console.log(num1 + num2)
+            //     return this;
+            // }
+
+            listCar(){
+                console.log("This car is a", this.model, "It was made in", this.year)
+            }
+        }
+
+        const test = new Car("Ford", 1999);
+
+        console.log(test)
+
+        test.listCar();
+
+        const car2 = new Car("Kia", 2005);
+
+        car2.listCar()
+
+        // test.addition(5,10).message();
+
+    </script>
+
+</body>
+</html>

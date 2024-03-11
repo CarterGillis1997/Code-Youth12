@@ -203,3 +203,10 @@ console.log(myObj["money"])
 let getKey = "name";
 
 console.log(myObj[getKey])
+
+let i = 0;
+
+while(i < 5){
+    i++
+    console.log("while", i)
+}

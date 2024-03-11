@@ -11,3 +11,7 @@ howdy.style.color = "red"
 pTags[1].innerText = 'This product is so cool!'
 
 document.querySelector("#content").innerText = ''
+
+// wwww 
+
+/* wwww */
