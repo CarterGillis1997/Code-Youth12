@@ -5,6 +5,7 @@ import ReactDOM  from "react-dom/client";
 // import Footer from "./class.js";
 import ButtonThing from "./button.js";
 import "./button.css"
+import Counter from "./counter.js"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,7 +20,8 @@ root.render(
     <Header text="Howdy" />
     <TheGrid />
     <Footer text="THIS IS A FOOTER" /> */}
-    <ButtonThing />
+    {/* <ButtonThing /> */}
+    <Counter />
   </>
 )
 
