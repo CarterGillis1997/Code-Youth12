@@ -1,27 +1,32 @@
 import React from "react";
 import ReactDOM  from "react-dom/client";
+import  {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 // import TheGrid from "./Grid.js"
 // import "./Grid.css"
 // import Footer from "./class.js";
-import ButtonThing from "./button.js";
-import "./button.css"
+// import ButtonThing from "./button.js";
+// import "./button.css"
 import Counter from "./counter.js"
+import Game from "./tictacto.js";
+
+const router = createBrowserRouter([
+  {
+    path:"/",
+    element:<Game />
+  },
+  {
+    path:"/counter",
+    element:<Counter />
+  }
+])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    {/* <div>
-      <p>Hello</p>
-    </div>
-    <Table />
-    <List content={["One","Two","Three"]} />
-    <Message text="Hello World" id="4" />
-    <Message text="Goodbye" />
-    <Header text="Howdy" />
-    <TheGrid />
-    <Footer text="THIS IS A FOOTER" /> */}
-    {/* <ButtonThing /> */}
-    <Counter />
+    <RouterProvider router={router} />
   </>
 )
 
