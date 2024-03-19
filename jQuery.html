@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent{
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+        }
+        .child{
+            width: 50px;
+            height: 50px;
+            border: 1px solid;
+        }
+        .hoverDiv{
+            width: 50px;
+            height: 50px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    
+    <p id="hello">Hello</p>
+
+    <p class="pTags">Howdy</p>
+    <p class="pTags">Goodbye</p>
+    <p class="pTags">Hello</p>
+
+    <p id="styleMe" title="123abc">Hello</p>
+
+    <div class="box"></div>
+
+    <div class="box"></div>
+
+    <input type="text">
+    <input type="range">
+    <input type="range">
+
+    <ul id="parentList">
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+    </ul>
+
+    <p id="clickMe">Click Me</p>
+    <p id="clickMe2">Click Me</p>
+
+    <div class="parent"></div>
+    <div class="child"></div>
+
+    <div class="hoverDiv">
+        <p>Hello</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        // Selections
+        const hello = document.getElementById("hello");
+        console.log(hello)
+
+        const helloJquery = $("#hello")
+        console.log(helloJquery)
+
+        // Css
+        const pTags = document.getElementsByClassName("pTags")
+        console.log(pTags)
+        pTags[0].style.color = "red"
+
+        const pTagsJquery = $(".pTags")
+        $(".pTags").css("color","red")
+        console.log(pTagsJquery)
+        
+        $("#styleMe").css("background-color", "red").text("Howdy");
+
+        const styleMe = document.getElementById("styleMe");
+        styleMe.style.backgroundColor = "red";
+        styleMe.innerText = "Howdy"
+
+        $(".box").css({"border":"1px solid black", "width":"50px", "height":"50px"});
+
+        // Attributes
+        $(".box").attr("title", "abc123")
+
+        console.log($(".box").attr("title"))
+
+        const myInput = $("input[type='text']")
+
+        const myInput2 = $("input").eq(2)
+        console.log(myInput2)
+
+        
+        // Selecting Child Elements
+        const parentList = $("#parentList").css("background-color","red").children().css("color","blue")
+        console.log(parentList)
+
+        const newElement = document.createElement("p");
+        newElement.innerText = 'Welcome'
+
+        document.body.appendChild(newElement)
+
+        // Creating Elements in jQuery
+        const jQueryElement = $("<p>Welcome</p>")
+        $("body").append(jQueryElement)
+
+        // const title = $("<h1/>").text("Title");
+        // const div = $("<div/>").append(title);
+
+        // $("body").append(div)
+
+        $("body").append($("<div/>").append($("<h1/>").text("Title")), $("<p/>").text("hello"))
+
+        const clickMe = document.getElementById("clickMe")
+        clickMe.addEventListener("click", example)
+        function example(event){
+            event.target.style.color = "blue"
+        }
+        clickMe.removeEventListener("click", example)
+
+        // Event Listeners
+        $("#clickMe2").on("click",(event)=>{
+            $(event.target).css("color","blue")
+        })
+
+        $("#clickMe2").off("click")
+        
+        $(".parent").append($(".child"));
+
+        $(".hoverDiv").on("mouseenter",(event)=>{
+            $(event.currentTarget).children().css("display","none")
+        })
+
+        const clone = $(".hoverDiv").clone(true, true);
+        $("body").append(clone);
+
+        const hoverDiv = $(".hoverDiv")
+        // hoverDiv.css("color","red")
+
+        hoverDiv[0].style.color = "red"
+
+        hoverDiv.fadeOut("")
+</script>
+</body>
+</html>
